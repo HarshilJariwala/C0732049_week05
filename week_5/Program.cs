@@ -29,16 +29,31 @@ namespace week_5
     }
 
     class department
+    {
+        public department(string dept_name)
         {
-            
+            departmentDescription = dept_name;
         }
+        public department nextdepartment;
+        public department previousdepartment;
+        public string departmentDescription;
+    }
+    class departmentstore
+    {
+           public void InitializeDepartments()
+           {
+            department kitchenware = new department("Kitchenware");
+            kitchenware.nextdepartment = book;
+            department book = new department("books");
+           }
+    }
     class elevator
     {
-        node head;
-        node firstfloor;
-        node secondfloor;
-        node thirdfloor;
-        node fourthfloor;
+        public node head;
+        public node firstfloor;
+        public node secondfloor;
+        public node thirdfloor;
+        public node fourthfloor;
 
         public void run()
         {
