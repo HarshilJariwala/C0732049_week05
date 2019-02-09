@@ -12,6 +12,7 @@ namespace week_5
         {
             elevator e = new elevator();
             e.run();
+            e.traverseList();
             Console.ReadKey();
 
 
@@ -24,10 +25,16 @@ namespace week_5
         public node() { }
         public node floor;
         public node elevatorup;
-        public  string floornumber;
+        public string floornumber;
     }
+
+    class department
+        {
+            
+        }
     class elevator
     {
+        node head;
         node firstfloor;
         node secondfloor;
         node thirdfloor;
@@ -40,6 +47,7 @@ namespace week_5
             thirdfloor = new node();
             fourthfloor = new node();
 
+            head = firstfloor;
             firstfloor.floornumber = "First Floor";
             Console.WriteLine("The floor number is {0}", firstfloor.floornumber);
             firstfloor.elevatorup = secondfloor;
@@ -52,7 +60,23 @@ namespace week_5
             fourthfloor.floornumber = "Fourth Floor";
             Console.WriteLine("The floor number is {0}", fourthfloor.floornumber);
             fourthfloor.elevatorup = null;
+
+
+           
         }
 
+
+        public void traverseList()
+        {
+            node temp = head;
+
+            Console.WriteLine("The first floor is "+ head.floornumber );
+            while(temp != null)
+            {
+                Console.WriteLine(temp.floornumber);
+                temp = temp.elevatorup;
+
+            }
+        }
     }
 }
